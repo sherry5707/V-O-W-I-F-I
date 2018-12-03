@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kinstalk.her.vowifivoip">
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="22" />
+    <!-- baidu map api -->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SOCIAL_STREAM" />
+    <uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:persistent="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity
+            android:name=".JRMessageListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AccountListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MessageSendActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".JRMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LocationBaiduActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AccountRegCapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AccountAdvancedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CmccAccountRegCapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".JRQuotActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CodecActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".JRCallActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoBar" />
+
+        <!-- 百度地图SDK -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <!-- API key for release -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="mC1iutar8wvPib8L4MPwhKRGh5VHTpzZ" />
+        <!-- ******************************************** -->
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.juphoon.rcs.juphoonrcsandroid.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- ********************************以下是系统电话************************************* -->
+        <activity
+            android:name="com.kinstalk.her.dialer.DialtactsActivity"
+            android:clearTaskOnLaunch="true"
+            android:directBootAware="true"
+            android:icon="@mipmap/ic_launcher_phone"
+            android:label="@string/launcherActivityLabel"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:theme="@style/DialtactsActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:mimeType="vnd.android.cursor.item/phone" />
+                <data android:mimeType="vnd.android.cursor.item/person" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="voicemail" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tel" />
+            </intent-filter>
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:mimeType="vnd.android.cursor.dir/calls" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CALL_BUTTON" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <!--
+                 This was never intended to be public, but is here for backward
+                 compatibility.  Use Intent.ACTION_DIAL instead.
+            -->
+            <intent-filter>
+                <action android:name="com.android.phone.action.TOUCH_DIALER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.TAB" />
+            </intent-filter>
+            <intent-filter android:label="@string/callHistoryIconLabel">
+                <action android:name="com.android.phone.action.RECENT_CALLS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.TAB" />
+            </intent-filter>
+
+            <meta-data
+                android:name="com.android.keyguard.layout"
+                android:resource="@layout/keyguard_preview" />
+        </activity> <!-- Backwards compatibility: "Phone" from Gingerbread and earlier -->
+        <activity-alias
+            android:name=".DialtactsActivity"
+            android:exported="true"
+            android:targetActivity="com.kinstalk.her.dialer.DialtactsActivity" /> <!-- Backwards compatibility: "Call log" from Gingerbread and earlier -->
+        <activity-alias
+            android:name=".RecentCallsListActivity"
+            android:exported="true"
+            android:targetActivity="com.kinstalk.her.dialer.DialtactsActivity" /> <!-- Backwards compatibility: "Call log" from ICS -->
+        <activity-alias
+            android:name=".activities.CallLogActivity"
+            android:exported="true"
+            android:targetActivity="com.kinstalk.her.dialer.DialtactsActivity" />
+
+        <!-- add by geniusgithub -->
+        <activity
+            android:name="com.kinstalk.her.dialer.ForceRequestPermissionsActivity"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity
+            android:name="com.kinstalk.her.dialer.settings.DialerSettingsActivity"
+            android:exported="false"
+            android:label="@string/dialer_settings_label"
+            android:parentActivityName="com.kinstalk.her.dialer.DialtactsActivity"
+            android:theme="@style/SettingsStyle" />
+        <activity
+            android:name="com.kinstalk.her.dialer.filterednumber.BlockedNumbersSettingsActivity"
+            android:exported="false"
+            android:label="@string/manage_blocked_numbers_label"
+            android:parentActivityName="com.kinstalk.her.dialer.settings.DialerSettingsActivity"
+            android:theme="@style/ManageBlockedNumbersStyle" />
+        <activity
+            android:name="com.kinstalk.her.dialer.voicemail.VoicemailArchiveActivity"
+            android:label="@string/voicemail_archive_activity_title"
+            android:theme="@style/DialtactsThemeWithoutActionBarOverlay" />
+        <activity
+            android:name="com.kinstalk.her.dialer.calllog.CallLogActivity"
+            android:icon="@mipmap/ic_launcher_phone"
+            android:label="@string/call_log_activity_title"
+            android:theme="@style/DialtactsThemeWithoutActionBarOverlay" />
+        <activity
+            android:name="com.kinstalk.her.dialer.CallDetailActivity"
+            android:icon="@mipmap/ic_launcher_phone"
+            android:label="@string/callDetailTitle"
+            android:theme="@style/CallDetailActivityTheme">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/calls" />
+            </intent-filter>
+        </activity>
+
+        <!--
+                    <activity android:name="com.kinstalk.her.contactscommon.common.test.FragmentTestActivity">
+                    <intent-filter>
+                        <category android:name="android.intent.category.TEST"/>
+                    </intent-filter>
+                </activity>
+        -->
+
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.dialog.CallSubjectDialog"
+            android:theme="@style/Theme.CallSubjectDialogTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+
+        <!-- Used to filter contacts list by account -->
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.list.AccountFilterActivity"
+            android:label="@string/activity_title_contacts_filter"
+            android:theme="@style/ContactListFilterTheme" />
+
+        <!-- Used to select display and sync groups -->
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.list.CustomContactListFilterActivity"
+            android:label="@string/custom_list_filter"
+            android:theme="@style/ContactListFilterTheme" />
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.activity.RequestImportVCardPermissionsActivity"
+            android:exported="false"
+            android:label="@string/launcherActivityLabel"
+            android:theme="@style/BackgroundOnlyTheme" />
+
+        <!-- vCard related -->
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.vcard.ImportVCardActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/BackgroundOnlyTheme" />
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.vcard.NfcImportVCardActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/BackgroundOnlyTheme" />
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.vcard.CancelActivity"
+            android:theme="@style/BackgroundOnlyTheme" />
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.vcard.SelectAccountActivity"
+            android:theme="@style/BackgroundOnlyTheme" />
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.vcard.ExportVCardActivity"
+            android:theme="@style/BackgroundOnlyTheme" />
+        <activity
+            android:name="com.kinstalk.her.contactscommon.common.vcard.ShareVCardActivity"
+            android:theme="@style/BackgroundOnlyTheme" />
+
+        <service
+            android:name="com.kinstalk.her.contactscommon.common.vcard.VCardService"
+            android:exported="false" />
+        <!-- end vCard related -->
+
+        <receiver android:name="com.kinstalk.her.dialer.calllog.CallLogReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_VOICEMAIL" />
+
+                <data
+                    android:host="com.android.voicemail"
+                    android:mimeType="vnd.android.cursor.item/voicemail"
+                    android:scheme="content" />
+            </intent-filter>
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kinstalk.her.dialer.interactions.UndemoteOutgoingCallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.kinstalk.her.dialer.calllog.CallLogNotificationsService"
+            android:directBootAware="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.kinstalk.her.dialer.calllog.MissedCallNotificationReceiver"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="android.telecom.action.SHOW_MISSED_CALLS_NOTIFICATION" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Service to update a contact -->
+        <service
+            android:name="com.kinstalk.her.dialer.contact.ContactUpdateService"
+            android:exported="false" />
+
+        <!-- Broadcast receiver that passively listens to location updates -->
+        <receiver android:name="com.kinstalk.her.contactscommon.common.location.CountryDetector$LocationChangedReceiver" />
+
+        <!-- IntentService to update the user's current country -->
+        <service
+            android:name="com.kinstalk.her.contactscommon.common.location.UpdateCountryService"
+            android:exported="false" />
+
+        <provider
+            android:name="com.kinstalk.her.dialer.database.FilteredNumberProvider"
+            android:authorities="com.kinstalk.her.dialer.database.filterednumberprovider"
+            android:exported="false"
+            android:multiprocess="false" />
+
+        <!-- remove because merger error -->
+        <!--
+            <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="@string/contacts_file_provider_authority"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        -->
+
+        <provider
+            android:name="com.kinstalk.her.dialer.database.VoicemailArchiveProvider"
+            android:authorities="com.kinstalk.her.dialer.database.voicemailarchiveprovider"
+            android:exported="false"
+            android:multiprocess="false" />
+
+        <service
+            android:name="com.kinstalk.her.voipmode.data.VoipIntentService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VOICE_COMMAND" />
+
+                <data
+                    android:scheme="kinstakAI"
+                    android:sspPrefix="//woVoip" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.kinstalk.her.contactsui.ContactEditorActivity"
+            android:theme="@style/ContactEditorStyle">
+            <intent-filter>
+                <action android:name="com.kinstalk.her.vowifi.insert.contact" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.kinstalk.her.voipmode.data.MyDBProvider"
+            android:authorities="com.kinstalk.her.vowifi.dialer.database.mydbprovider"
+            android:exported="true" />
+
+        <activity android:name="com.kinstalk.her.contactsui.ContactPickerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.dir/contact" />
+                <data android:mimeType="vnd.android.cursor.dir/person" />
+                <data android:mimeType="vnd.android.cursor.dir/phone_v2" />
+                <data android:mimeType="vnd.android.cursor.dir/phone" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.kinstalk.her.voipmode.VowWifiService"/>
+    </application>
+
+</manifest>

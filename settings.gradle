@@ -1,0 +1,1 @@
+include ':jrsdk', ':libs', ':voip', ':dialerui', ":common",":contactscommon",":phonecommon",':incallui'

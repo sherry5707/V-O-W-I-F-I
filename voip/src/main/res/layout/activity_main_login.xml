@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/tips_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="60dp"
+            android:text="@string/required_bind_promo"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:importantForAccessibility="no"
+            android:paddingTop="30dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/permissions" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/white" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/create_account_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="账号" />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/edt_auth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="鉴权名" />
+
+        <EditText
+            android:id="@+id/edt_realm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="服务器域名" />
+
+        <EditText
+            android:id="@+id/edt_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="服务器地址" />
+
+
+        <RadioGroup
+            android:id="@+id/radio_group_tpt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@+id/radio_tpt_udp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <RadioButton
+                android:id="@+id/radio_tpt_udp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UDP"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radio_tpt_tcp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="TCP"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radio_tpt_tls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="TLS"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+
+        <EditText
+            android:id="@+id/edt_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="端口名"
+            android:inputType="number"
+            android:text="5060" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_light"
+            android:onClick="onLogin"
+            android:text="登录"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+</RelativeLayout>
